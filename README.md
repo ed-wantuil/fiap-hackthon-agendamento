@@ -1,9 +1,4 @@
-# Tech Challenge - 4 - pagamento
-
-## Introdução
-Este repositório contém o microserviço de pagamento, oferecendo as seguintes funcionalidades:
-- **webhook (POST)** - Webhook para pagamento.
-- **find by orderId (GET)** - buscar o status de pagamento pelo OrderId.
+# Fiap Hackthon
 
 ## Fluxo de Trabalho (Git Flow)
 Adotamos o Git Flow para uma organização eficaz do desenvolvimento:
