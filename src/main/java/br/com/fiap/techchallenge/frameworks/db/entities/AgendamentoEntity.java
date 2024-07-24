@@ -2,7 +2,7 @@ package br.com.fiap.techchallenge.frameworks.db.entities;
 
 import java.time.LocalDateTime;
 
-import br.com.fiap.techchallenge.frameworks.util.LocalDateConverter;
+import br.com.fiap.techchallenge.frameworks.util.LocalDateTimeConverter;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBAttribute;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBDocument;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBHashKey;
@@ -20,7 +20,7 @@ import lombok.NoArgsConstructor;
 @DynamoDBTable(tableName = "agendamento")
 @DynamoDBDocument
 public class AgendamentoEntity {
-    @DynamoDBHashKey(attributeName = "id")
+    @DynamoDBHashKey(attributeName = "Id")
     private String id;
 
     @DynamoDBAttribute(attributeName = "Paciente")
@@ -30,7 +30,7 @@ public class AgendamentoEntity {
     private String medicoId;
 
     @DynamoDBAttribute(attributeName = "data")
-    @DynamoDBTypeConverted(converter = LocalDateConverter.class)
+    @DynamoDBTypeConverted(converter = LocalDateTimeConverter.class)
     private LocalDateTime data;
 
     @DynamoDBAttribute(attributeName = "status")

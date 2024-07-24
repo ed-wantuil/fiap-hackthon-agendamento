@@ -12,11 +12,12 @@ public class CancelarAgendamentoImpl implements CancelarAgendamento {
 
     @Override
     public Agendamento cancelar(String id, String justificativa) {
-        Agendamento agendamento = agendamentoGateway.findById(id);
-
-        agendamento.setStatus("CANCELADO");
-
-        agendamento.setJustificativaCancelamento(justificativa);
+        Agendamento agendamento = Agendamento.builder()
+                .status("CANCELADO")
+                .justificativaCancelamento(justificativa)
+                .build();
+        
+        agendamento = agendamentoGateway.atualizar(id, agendamento);
 
         return agendamento;
     }

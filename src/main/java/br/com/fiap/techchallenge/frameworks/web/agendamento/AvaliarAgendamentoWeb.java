@@ -15,6 +15,6 @@ public interface AvaliarAgendamentoWeb {
             responses = {
                     @ApiResponse(responseCode = "200", description = "Agendamento avaliado"),
             })
-    @PutMapping("/agendmaento/{id}")
+    @PutMapping("/agendmaento/avaliar/{id}")
     void avaliar(@PathVariable String id, @RequestBody AgendamentoRequest avaliacaoRequest);
 }

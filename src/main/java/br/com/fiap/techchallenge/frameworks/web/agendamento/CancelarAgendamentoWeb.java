@@ -15,6 +15,6 @@ public interface CancelarAgendamentoWeb {
             responses = {
                     @ApiResponse(responseCode = "200", description = "Agendamento avaliado"),
             })
-    @PutMapping("/agendmaento/{id}")
+    @PutMapping("/agendmaento/cancelar/{id}")
     void cancelar(@PathVariable String id, @RequestBody AgendamentoRequest agendamentoRequest);
 }

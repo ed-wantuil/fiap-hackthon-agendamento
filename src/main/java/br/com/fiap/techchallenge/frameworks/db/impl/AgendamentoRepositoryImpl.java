@@ -1,11 +1,13 @@
 package br.com.fiap.techchallenge.frameworks.db.impl;
 
 import java.util.List;
+import java.util.stream.StreamSupport;
 
 import br.com.fiap.techchallenge.application.gateways.AgendamentoGateway;
 import br.com.fiap.techchallenge.domain.entities.Agendamento;
 import br.com.fiap.techchallenge.frameworks.db.converters.AgendamentoEntityToAgendamento;
 import br.com.fiap.techchallenge.frameworks.db.converters.AgendamentoToAgendamentoEntity;
+import br.com.fiap.techchallenge.frameworks.db.entities.AgendamentoEntity;
 import br.com.fiap.techchallenge.frameworks.db.repositories.SpringDataAgendamentoRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;
@@ -51,7 +53,12 @@ public class AgendamentoRepositoryImpl implements AgendamentoGateway {
 
     @Override
     public List<Agendamento> findAll() {
-        return List.of();
+        Iterable<AgendamentoEntity> agendamentos = springDataAgendamentoRepository.findAll();
+
+        return StreamSupport.stream(agendamentos.spliterator(), false)
+                .map(agendamentoEntityToAgendamento::convert)
+                .toList();
+
     }
 
 }

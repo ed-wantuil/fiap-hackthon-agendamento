@@ -15,6 +15,7 @@ public class AgendamentoToAgendamentoResponse {
                 .paciente(convert(agendamento.getPaciente()))
                 .medicoId(agendamento.getMedicoId())
                 .data(agendamento.getData())
+                .status(agendamento.getStatus())
                 .justificativaCancelamento(agendamento.getJustificativaCancelamento())
                 .build();
     }
